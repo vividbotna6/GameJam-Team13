@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c54045a0e0a7d574f8758c6c894fa88f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 1160529177}
+  lookAt: {fileID: 1076990783}
   Player: {fileID: 1160529177}
   distance: 10
   sensitivity: 20
@@ -429,6 +429,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1076990783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6859638562945935393, guid: 34f16ebbb08b34b42adfeca2b8540fd3, type: 3}
+  m_PrefabInstance: {fileID: 1862558141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1160529177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5350900316064164523, guid: 34f16ebbb08b34b42adfeca2b8540fd3, type: 3}
