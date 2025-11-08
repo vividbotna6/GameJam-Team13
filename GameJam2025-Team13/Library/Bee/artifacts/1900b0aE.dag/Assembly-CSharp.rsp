@@ -366,6 +366,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.ProBuilder.AddOns.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.ProBuilder.AssetIdRemapUtility.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.ProBuilder.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.ProBuilder.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -388,6 +392,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
+"Assets/Scripts/CameraMove.cs"
 "Assets/Scripts/MovementScript.cs"
 -langversion:9.0
 

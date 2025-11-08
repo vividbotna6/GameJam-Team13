@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638981641598999228
-    m_Hash: 314904612
+      ticks: 638981743544130293
+    m_Hash: 3206936214
   m_LockFileStatus:
     m_FilePath: C:/Users/rsean/Desktop/GAME JAM 2025/GameJam-Team13/GameJam2025-Team13/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638981641599039237
-    m_Hash: 1418619725
+      ticks: 638981743544178634
+    m_Hash: 1290736851
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -296,6 +296,174 @@ m_ResolvedPackages:
     hash: 
     revision: 
   upmReserved: '{"quickstart":"https://docs.unity3d.com/2021.2/Documentation/Manual/DeveloperToolsFeature.html"}'
+  assetStore:
+    productId: 
+- packageId: com.unity.probuilder@5.2.4
+  testable: 0
+  isDirectDependency: 1
+  version: 5.2.4
+  source: 1
+  resolvedPath: C:\Users\rsean\Desktop\GAME JAM 2025\GameJam-Team13\GameJam2025-Team13\Library\PackageCache\com.unity.probuilder@5.2.4
+  assetPath: Packages/com.unity.probuilder
+  name: com.unity.probuilder
+  displayName: ProBuilder
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: 'Build, edit, and texture custom geometry in Unity. Use ProBuilder
+    for in-scene level design, prototyping, collision meshes, all with on-the-fly
+    play-testing.
+
+
+    Advanced features include UV editing, vertex colors, parametric
+    shapes, and texture blending. With ProBuilder''s model export feature it''s easy
+    to tweak your levels in any external 3D modelling suite.
+
+
+    If you are using
+    URP/HDRP, be careful to also import the corresponding sample project in the section
+    below to get the proper materials.'
+  errors: []
+  versions:
+    all:
+    - 3.0.0
+    - 3.0.1
+    - 3.0.2
+    - 3.0.3
+    - 3.0.6
+    - 3.0.8
+    - 3.0.9
+    - 3.10.1
+    - 4.0.2
+    - 4.0.3
+    - 4.0.4
+    - 4.0.5
+    - 4.1.0
+    - 4.1.2
+    - 4.2.1
+    - 4.2.2-preview.1
+    - 4.2.2-preview.2
+    - 4.2.3
+    - 4.2.4-preview.0
+    - 4.3.0-preview.0
+    - 4.3.0-preview.1
+    - 4.3.0-preview.2
+    - 4.3.0-preview.4
+    - 4.3.0-preview.6
+    - 4.3.0-preview.7
+    - 4.3.0-preview.8
+    - 4.3.0-preview.9
+    - 4.3.1
+    - 4.4.0-preview.1
+    - 4.4.0
+    - 4.5.0
+    - 4.5.2
+    - 5.0.0-pre.7
+    - 5.0.0-pre.10
+    - 5.0.1
+    - 5.0.3
+    - 5.0.4
+    - 5.0.6
+    - 5.0.7
+    - 5.1.0
+    - 5.1.1
+    - 5.2.0
+    - 5.2.2
+    - 5.2.3
+    - 5.2.4
+    - 6.0.1-pre.1
+    - 6.0.1-pre.2
+    - 6.0.1
+    - 6.0.2
+    - 6.0.3
+    - 6.0.4
+    - 6.0.5
+    - 6.0.6
+    - 6.0.7
+    compatible:
+    - 5.2.2
+    - 5.2.3
+    - 5.2.4
+    recommended: 5.2.4
+    deprecated: []
+  dependencies:
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
+  - name: com.unity.settings-manager
+    version: 1.0.3
+  resolvedDependencies:
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
+  - name: com.unity.settings-manager
+    version: 2.0.1
+  keywords:
+  - 3d
+  - model
+  - mesh
+  - modeling
+  - geometry
+  - shape
+  - cube
+  - blender
+  - max
+  - maya
+  - fbx
+  - obj
+  - level
+  - design
+  - block
+  - greybox
+  - graybox
+  - whitebox
+  - prototype
+  - probuilder
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638780950544010000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.probuilder@5.2/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.probuilder.git
+    revision: 69b6a742acb6d7698c33f4f0a4d55ad39e17f096
+    path: 
+  unityLifecycle:
+    version: 5.2.2
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Fixed\n\n- [PBLD-189] Fixed a bug where using the
+    auto-stitch functionality of the UV Editor would not work properly on MacOS,
+    moved it to Control+Command+Shift + Left click (MacOS only).\n- [PBLD-192] Fixed
+    a bug where vertices were not able to snap on other vertices from the same mesh
+    for Unity 2020.3 and later.\n- [PBLD-150] Fixed a bug where the orientation handles
+    would not be useful when manipulating a cube shape.\n- [PBLD-205] Fixed a bug
+    where the `Edit PolyShape` tool would revert previously merged PolyShape objects.\n-
+    [PBLD-199] Fixed a bug where an exception was thrown if you placed two cut tool
+    vertices on the same edge."}'
   assetStore:
     productId: 
 - packageId: com.unity.timeline@1.8.6
@@ -2939,6 +3107,79 @@ m_ResolvedPackages:
   upmReserved: 
   assetStore:
     productId: 
+- packageId: com.unity.settings-manager@2.0.1
+  testable: 0
+  isDirectDependency: 0
+  version: 2.0.1
+  source: 1
+  resolvedPath: C:\Users\rsean\Desktop\GAME JAM 2025\GameJam-Team13\GameJam2025-Team13\Library\PackageCache\com.unity.settings-manager@2.0.1
+  assetPath: Packages/com.unity.settings-manager
+  name: com.unity.settings-manager
+  displayName: Settings Manager
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: A framework for making any serializable field a setting, complete
+    with a pre-built settings interface.
+  errors: []
+  versions:
+    all:
+    - 0.1.0-preview.4
+    - 0.1.0-preview.8
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2
+    - 1.0.3
+    - 2.0.0
+    - 2.0.1
+    - 2.1.0
+    - 2.1.1
+    compatible:
+    - 2.0.1
+    - 2.1.0
+    - 2.1.1
+    recommended: 2.0.1
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637744099390000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.settings-manager.git
+    revision: 9b7c12d04ef880168151c127fd6b37b5931197dc
+    path: 
+  unityLifecycle:
+    version: 2.0.1
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: 
+  assetStore:
+    productId: 
 - packageId: com.unity.ide.visualstudio@2.0.22
   testable: 0
   isDirectDependency: 0
@@ -3586,79 +3827,6 @@ m_ResolvedPackages:
     for assemblies whose name starts with ''system'' (case [COV-38](https://issuetracker.unity3d.com/issues/code-coverage-fails-to-generate-a-report-when-the-assembly-name-begins-with-the-word-system)).\n-
     Fixed results xml file not been correctly stored under the EditMode folder if
     it is written after a domain reload (case [COV-36](https://issuetracker.unity3d.com/issues/coverage-results-xml-file-is-not-categorized-as-editmode-if-it-is-written-after-domain-reload))."}'
-  assetStore:
-    productId: 
-- packageId: com.unity.settings-manager@2.0.1
-  testable: 0
-  isDirectDependency: 0
-  version: 2.0.1
-  source: 1
-  resolvedPath: C:\Users\rsean\Desktop\GAME JAM 2025\GameJam-Team13\GameJam2025-Team13\Library\PackageCache\com.unity.settings-manager@2.0.1
-  assetPath: Packages/com.unity.settings-manager
-  name: com.unity.settings-manager
-  displayName: Settings Manager
-  author:
-    name: 
-    email: 
-    url: 
-  category: 
-  type: asset
-  description: A framework for making any serializable field a setting, complete
-    with a pre-built settings interface.
-  errors: []
-  versions:
-    all:
-    - 0.1.0-preview.4
-    - 0.1.0-preview.8
-    - 1.0.0
-    - 1.0.1
-    - 1.0.2
-    - 1.0.3
-    - 2.0.0
-    - 2.0.1
-    - 2.1.0
-    - 2.1.1
-    compatible:
-    - 2.0.1
-    - 2.1.0
-    - 2.1.1
-    recommended: 2.0.1
-    deprecated: []
-  dependencies: []
-  resolvedDependencies: []
-  keywords: []
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-    configSource: 0
-  hideInEditor: 1
-  entitlements:
-    licensingModel: 1
-  isAssetStorePackage: 0
-  datePublishedTicks: 637744099390000000
-  documentationUrl: 
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.com/Unity-Technologies/com.unity.settings-manager.git
-    revision: 9b7c12d04ef880168151c127fd6b37b5931197dc
-    path: 
-  unityLifecycle:
-    version: 2.0.1
-    nextVersion: 
-    recommendedVersion: 
-    isDeprecated: 0
-    deprecationMessage: 
-  isDeprecated: 0
-  deprecationMessage: 
-  git:
-    hash: 
-    revision: 
-  upmReserved: 
   assetStore:
     productId: 
 - packageId: com.unity.ext.nunit@2.0.5
