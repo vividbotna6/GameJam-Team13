@@ -7,11 +7,19 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     Rigidbody Controller;
+    //
     public GameObject[] ratModels;
     public GameObject[] ratUI;
+    //variables for testing rat stacking
     public bool testModelSwitch;
     public bool testResetSwitch;
-
+    public bool testExpelSwitch;
+    public bool testSpawnSwitch;
+    //Object spawning 
+    public GameObject objectToSpawn;
+    public GameObject playerObject;
+    public int numberOfObjects = 1;
+    public float radius = 5f;
 
     public float StartSpeed;
     public float MaxSpeed;
@@ -53,8 +61,21 @@ public class Player : MonoBehaviour
             testResetSwitch = false;
         }
 
+        if (testExpelSwitch)
+        {
+            ExpelModel();
+            testExpelSwitch = false;
+        }
+        
+        if (testSpawnSwitch)
+        {
+            SpawnAroundPlayer(numberOfObjects);
+            testSpawnSwitch = false;
+        }
+
         float Horizontal = Input.GetAxis("Horizontal") * StartSpeed * Time.deltaTime;
         float Vertical = Input.GetAxis("Vertical") * StartSpeed * Time.deltaTime;
+        
 
 
 
@@ -99,11 +120,12 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
         }
 
-        if (Controller.velocity.magnitude > collapseSpeed)
-        {
+        // if (Controller.velocity.magnitude > collapseSpeed)
+        // {
 
-        }
+        // }
 
+        Debug.Log("Current Speed - " + currentVelocity);
 
 
 
@@ -112,17 +134,35 @@ public class Player : MonoBehaviour
 
 
     }
-    void OnTriggerEnter(Collider other)
+    //Collider portion of script, for both ally and enemy objects
+    void OnTriggerEnter(Collider collision)
     {
-        SwitchModel();
-        Debug.Log("COLLECTED RAT");
+        
+        Debug.Log("Collision Detected");
+        if (collision.CompareTag("AllyRat"))
+        {
+            SwitchModel();
+            Destroy(collision.gameObject);
+            Debug.Log("Collected Rat.");
+        }
+        else if(collision.CompareTag("Hazard"))
+        {
+            ResetModel();
+            Debug.Log("Lost Rats");
+            SpawnAroundPlayer(10);
+
+        }
 
 
     }
     void SwitchModel()
     {
         ratModels[currentModelIndex].SetActive(false);
-        currentModelIndex++;
+        if (currentModelIndex < 10)
+        {
+            currentModelIndex++;
+        }
+        else;
         ratModels[currentModelIndex].SetActive(true);
     }
     void ResetModel()
@@ -131,11 +171,44 @@ public class Player : MonoBehaviour
         currentModelIndex = 0;
         ratModels[currentModelIndex].SetActive(true);
     }
+    void ExpelModel()
+    {
+        ratModels[currentModelIndex].SetActive(false);
+        if (currentModelIndex > 0)
+        {
+            currentModelIndex--;
+        }
+        else;
+        ratModels[currentModelIndex].SetActive(true);
+    }
+
+
+public void SpawnAroundPlayer(int count)
+{
+    if (objectToSpawn == null || playerObject == null)
+    {
+        Debug.LogWarning("Missing Spawner object or player object reference.");
+        return;
+    }
+
+    for (int i = 0; i < count; i++)
+    {
+        float angle = Random.Range(0f, Mathf.PI * 2);
+        float distance = Random.Range(0.5f * radius, radius);
+        Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
+        Vector3 spawnPosition = playerObject.transform.position + offset;
+
+        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+    }
+}
+    
         
 
  
 }
 //to do 
-//make placeholder models
 //figure out joints
 //check speed
+// create event to drop rats
+// spawn rats
+// create rat pickup
