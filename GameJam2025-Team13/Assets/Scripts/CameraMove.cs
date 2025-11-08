@@ -8,6 +8,8 @@ public class CameraMove : MonoBehaviour
     private const float YMin = -50.0f;
     private const float YMax = 50.0f;
 
+    public Player moveScript;
+
     public Transform lookAt;
 
     public Transform Player;
@@ -23,7 +25,7 @@ public class CameraMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         currentX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
         currentY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;

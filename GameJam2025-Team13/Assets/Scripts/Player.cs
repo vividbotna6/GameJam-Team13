@@ -2,25 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
-    CharacterController Controller;
+    Rigidbody Controller;
     public GameObject[] ratModels;
+    public GameObject[] ratUI;
     public bool testModelSwitch;
+    public bool testResetSwitch;
 
 
-    public float Speed;
+    public float StartSpeed;
+    public float MaxSpeed;
+    public float acceleration = 1f;
+    public float collapseSpeed = 0f;
 
     public Transform Cam;
 
+    private Vector3 lastVelocity = Vector3.zero;
+    private float currentSpeed = 0f; // The current maximum speed of the character, changed by acceleration.
+
     [SerializeField] int currentModelIndex = 0;
 
+    public GameObject CanvasUI;
+    [SerializeField] TMP_Text UIText;
 
     // Start is called before the first frame update
     void Start()
     {
-        Controller = GetComponent<CharacterController>();
+        Controller = GetComponent<Rigidbody>();
+
+        currentSpeed = StartSpeed;
+        
+        
     }
 
     // Update is called once per frame
@@ -31,17 +46,47 @@ public class Player : MonoBehaviour
             SwitchModel();
             testModelSwitch = false;
         }
-        
-        float Horizontal = Input.GetAxis("Horizontal") * Speed * Time.deltaTime;
-        float Vertical = Input.GetAxis("Vertical") * Speed * Time.deltaTime;
+
+        if (testResetSwitch)
+        {
+            ResetModel();
+            testResetSwitch = false;
+        }
+
+        float Horizontal = Input.GetAxis("Horizontal") * StartSpeed * Time.deltaTime;
+        float Vertical = Input.GetAxis("Vertical") * StartSpeed * Time.deltaTime;
 
 
 
         Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
         Movement.y = 0f;
 
+        Controller.AddForce(Movement * currentSpeed);
 
-        Controller.Move(Movement);
+        Vector3 currentVelocity = Controller.velocity;
+
+        if (Horizontal + Vertical >= 1f)
+        {
+            float angle = Vector3.Angle(currentVelocity.normalized, lastVelocity.normalized);
+            if (angle <= 30f)
+            {
+                // Accelerate, clamped to maximum
+                currentSpeed = Mathf.Min(currentSpeed + (acceleration * Time.deltaTime), MaxSpeed);
+            }
+            else
+            {
+                // Decelerate, clamped to start speed.
+                // NOTE: We can add a separate "deceleration" value here.
+                currentSpeed = Mathf.Max(currentSpeed - (acceleration * Time.deltaTime), StartSpeed);
+            }
+        }
+        else
+        {
+            currentSpeed = StartSpeed;
+        }
+
+
+        lastVelocity = currentVelocity;
 
         if (Movement.magnitude != 0f)
         {
@@ -54,23 +99,43 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
         }
 
-
-
-
-
-        //to do
-        //track current model index
-        //on collect turn off current model, incriment index, turn on new model, 
-    }
-     void SwitchModel()
+        if (Controller.velocity.magnitude > collapseSpeed)
         {
-            ratModels[currentModelIndex].SetActive(false);
-            currentModelIndex++;
-            ratModels[currentModelIndex].SetActive(true);
+
         }
 
-    // void TestIndex()
-    //     {
-            
-    //     }
+
+
+
+
+
+
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        SwitchModel();
+        Debug.Log("COLLECTED RAT");
+
+
+    }
+    void SwitchModel()
+    {
+        ratModels[currentModelIndex].SetActive(false);
+        currentModelIndex++;
+        ratModels[currentModelIndex].SetActive(true);
+    }
+    void ResetModel()
+    {
+        ratModels[currentModelIndex].SetActive(false);
+        currentModelIndex = 0;
+        ratModels[currentModelIndex].SetActive(true);
+    }
+        
+
+ 
 }
+//to do 
+//make placeholder models
+//figure out joints
+//check speed
