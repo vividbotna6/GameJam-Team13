@@ -2254,11 +2254,11 @@ PrefabInstance:
       objectReference: {fileID: 1518187236}
     - target: {fileID: 2724655871336732635, guid: 34f16ebbb08b34b42adfeca2b8540fd3, type: 3}
       propertyPath: timerMax
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2724655871336732635, guid: 34f16ebbb08b34b42adfeca2b8540fd3, type: 3}
       propertyPath: fallSpeed
-      value: -100
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 3737244753949973925, guid: 34f16ebbb08b34b42adfeca2b8540fd3, type: 3}
       propertyPath: m_Drag
