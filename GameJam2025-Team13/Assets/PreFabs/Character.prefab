@@ -32,6 +32,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7647342781262406303}
   - {fileID: 2414350876865054718}
   - {fileID: 4337728285277467459}
   - {fileID: 6899764140651102777}
@@ -67,7 +68,6 @@ MonoBehaviour:
   - {fileID: 8629502139820522809}
   - {fileID: 7986645939431510412}
   - {fileID: 6974869253040666513}
-  - {fileID: 0}
   ratUI: []
   testModelSwitch: 0
   testResetSwitch: 0
@@ -77,12 +77,12 @@ MonoBehaviour:
   playerObject: {fileID: 170777105123514395}
   numberOfObjects: 1
   radius: 5
-  StartSpeed: 40
-  MaxSpeed: 70
-  acceleration: 30
+  StartSpeed: 500
+  MaxSpeed: 10000
+  acceleration: 500
   collapseThreshHold: 10
   collapseTimer: 0
-  timerMax: 3
+  timerMax: 2
   Cam: {fileID: 0}
   currentModelIndex: 0
   CanvasUI: {fileID: 0}
@@ -118,9 +118,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170777105123514395}
   serializedVersion: 4
-  m_Mass: 2
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Mass: 20
+  m_Drag: 5
+  m_AngularDrag: 0.01
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -137,6 +137,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &918218703697047440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7647342781262406303}
+  m_Layer: 0
+  m_Name: Cameara Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7647342781262406303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918218703697047440}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5350900316064164523}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1381426707661080344
 PrefabInstance:
   m_ObjectHideFlags: 0

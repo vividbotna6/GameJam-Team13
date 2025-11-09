@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 using TMPro;
 using System.Threading;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -40,13 +40,16 @@ public class Player : MonoBehaviour
     public GameObject CanvasUI;
     [SerializeField] TMP_Text UIText;
 
+    int arrayCount;
+
     // Start is called before the first frame update
     void Start()
     {
         Controller = GetComponent<Rigidbody>();
 
         currentSpeed = StartSpeed;
-        
+        arrayCount = ratModels.Length;
+        Debug.Log("Current model index - " + currentModelIndex);   
         
     }
 
@@ -73,7 +76,7 @@ public class Player : MonoBehaviour
         
         if (testSpawnSwitch)
         {
-            SpawnAroundPlayer(numberOfObjects);
+            SpawnAroundPlayer(currentModelIndex);
             testSpawnSwitch = false;
         }
 
@@ -141,6 +144,8 @@ public class Player : MonoBehaviour
             Debug.Log(collapseTimer);
             if (collapseTimer >= timerMax)
             {
+                arrayCount = ratModels.Length;
+                SpawnAroundPlayer(currentModelIndex);
                 ResetModel();
                 Debug.Log("RIP BOZO");
             }
@@ -167,15 +172,21 @@ public class Player : MonoBehaviour
         Debug.Log("Collision Detected");
         if (collision.CompareTag("AllyRat"))
         {
+
             SwitchModel();
+            arrayCount = currentModelIndex;
             Destroy(collision.gameObject);
+            Debug.Log("current Index - " + arrayCount);
             Debug.Log("Collected Rat.");
         }
         else if(collision.CompareTag("Hazard"))
         {
+            arrayCount = currentModelIndex;
+
+            Debug.Log("current index - " + arrayCount); 
             ResetModel();
             Debug.Log("Lost Rats");
-            SpawnAroundPlayer(10);
+            SpawnAroundPlayer(arrayCount);
 
         }
 
@@ -220,7 +231,19 @@ public void SpawnAroundPlayer(int count)
         Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
         Vector3 spawnPosition = playerObject.transform.position + offset;
 
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        GameObject instance = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        Rigidbody rb = instance.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+                rb.velocity = new Vector3(5, 10, 5);
+            
+        }
+        else
+        {
+                Debug.LogWarning("No Rigidbody found on the instantiated object.");   
+        }
+
+        
     }
 }
     
