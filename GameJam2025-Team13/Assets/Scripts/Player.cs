@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
             SpawnAroundPlayer(currentModelIndex);
             testSpawnSwitch = false;
         }
-
+        // MOVEMENT SCRIPT - DONT TOUCH ANYMORE
         float Horizontal = Input.GetAxis("Horizontal") * StartSpeed * Time.deltaTime;
         float Vertical = Input.GetAxis("Vertical") * StartSpeed * Time.deltaTime;
         
@@ -127,10 +127,6 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
         }
 
-        // if (Controller.velocity.magnitude > collapseSpeed)
-        // {
-
-        // }
 
         Vector3 velocity = Controller.velocity;
 
@@ -138,6 +134,8 @@ public class Player : MonoBehaviour
 
         Debug.Log("Speed - " + speed);
 
+
+        //TIMER FOR LOOSING RATS -
         if (speed >= collapseThreshHold)
         {
             collapseTimer += Time.fixedDeltaTime;
