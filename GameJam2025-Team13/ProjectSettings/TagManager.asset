@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AllyRat
   - Hazard
+  - WinCondition
   layers:
   - Default
   - TransparentFX
