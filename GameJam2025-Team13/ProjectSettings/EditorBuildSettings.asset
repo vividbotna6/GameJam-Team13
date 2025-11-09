@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jam Scene.unity
     guid: 052004d673c283647808c55aa7f90977
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 254072d3f4851674cbf08e8342810ace
   m_configObjects: {}

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Threading;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public bool testResetSwitch;
     public bool testExpelSwitch;
     public bool testSpawnSwitch;
+    public bool testWinCondition;
     //Object spawning 
     public GameObject objectToSpawn;
     public GameObject playerObject;
@@ -73,11 +75,15 @@ public class Player : MonoBehaviour
             ExpelModel();
             testExpelSwitch = false;
         }
-        
+
         if (testSpawnSwitch)
         {
             SpawnAroundPlayer(currentModelIndex);
             testSpawnSwitch = false;
+        }
+        if (testWinCondition)
+        {
+            WinGame();
         }
         // MOVEMENT SCRIPT - DONT TOUCH ANYMORE
         float Horizontal = Input.GetAxis("Horizontal") * StartSpeed * Time.deltaTime;
@@ -177,14 +183,20 @@ public class Player : MonoBehaviour
             Debug.Log("current Index - " + arrayCount);
             Debug.Log("Collected Rat.");
         }
-        else if(collision.CompareTag("Hazard"))
+        else if (collision.CompareTag("Hazard"))
         {
             arrayCount = currentModelIndex;
 
-            Debug.Log("current index - " + arrayCount); 
+            Debug.Log("current index - " + arrayCount);
             ResetModel();
             Debug.Log("Lost Rats");
             SpawnAroundPlayer(arrayCount);
+
+        }
+        else if (collision.CompareTag("WinCondition"))
+        {
+            Debug.Log("Player has Won!");
+            WinGame();
 
         }
 
@@ -214,36 +226,42 @@ public class Player : MonoBehaviour
     }
 
 
-public void SpawnAroundPlayer(int count)
-{
-    if (objectToSpawn == null || playerObject == null)
+    public void SpawnAroundPlayer(int count)
     {
-        Debug.LogWarning("Missing Spawner object or player object reference.");
-        return;
-    }
-
-    for (int i = 0; i < count; i++)
-    {
-        float angle = Random.Range(0f, Mathf.PI * 2);
-        float distance = Random.Range(0.5f * radius, radius);
-        Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
-        Vector3 spawnPosition = playerObject.transform.position + offset;
-
-        GameObject instance = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
-        Rigidbody rb = instance.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (objectToSpawn == null || playerObject == null)
         {
-                rb.velocity = new Vector3(5, 10, 5);
+            Debug.LogWarning("Missing Spawner object or player object reference.");
+            return;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            float angle = Random.Range(0f, Mathf.PI * 2);
+            float distance = Random.Range(0.5f * radius, radius);
+            Vector3 offset = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * distance;
+            Vector3 spawnPosition = playerObject.transform.position + offset;
+
+            GameObject instance = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            Rigidbody rb = instance.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                    rb.velocity = new Vector3(5, 10, 5);
+                
+            }
+            else
+            {
+                    Debug.LogWarning("No Rigidbody found on the instantiated object.");   
+            }
+            
+
             
         }
-        else
-        {
-                Debug.LogWarning("No Rigidbody found on the instantiated object.");   
-        }
-
-        
     }
-}
+    public void WinGame()
+    {
+        
+        SceneManager.LoadScene("EndScreen");
+    }
     
         
 

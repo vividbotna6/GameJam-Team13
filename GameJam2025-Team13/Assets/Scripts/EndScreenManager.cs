@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndScreenManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void CloseApp()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.Quit();
+        Debug.Log("Application has Quit");
     }
 }
