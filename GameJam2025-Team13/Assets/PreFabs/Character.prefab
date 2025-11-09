@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2724655871336732635}
   - component: {fileID: 1207743581636328794}
   - component: {fileID: 3737244753949973925}
+  - component: {fileID: 1297968195993063238}
   m_Layer: 3
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +74,7 @@ MonoBehaviour:
   testResetSwitch: 0
   testExpelSwitch: 0
   testSpawnSwitch: 0
+  testWinCondition: 0
   objectToSpawn: {fileID: 604677848982248197, guid: 8b6dae5aee9a7764782277921febe6f2, type: 3}
   playerObject: {fileID: 170777105123514395}
   numberOfObjects: 1
@@ -137,6 +139,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1297968195993063238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170777105123514395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc134598a9e1bb47a45dd572c1ea111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &918218703697047440
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1220684205264780123, guid: ce811d02818b1444281e7a3774594b9e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7256231599359803904, guid: ce811d02818b1444281e7a3774594b9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -537,7 +551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1220684205264780123, guid: 4b1adbae973f2d543b142e857dda8c94, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627074160776918322, guid: 4b1adbae973f2d543b142e857dda8c94, type: 3}
       propertyPath: m_ConnectedAnchor.y
