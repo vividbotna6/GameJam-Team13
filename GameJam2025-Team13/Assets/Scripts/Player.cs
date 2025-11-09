@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 using TMPro;
+using System.Threading;
 
 public class Player : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class Player : MonoBehaviour
     public float StartSpeed;
     public float MaxSpeed;
     public float acceleration = 1f;
-    public float collapseSpeed = 0f;
+    public float collapseThreshHold = 10;
+
+    public float collapseTimer;
+    public float timerMax = 3;
 
     public Transform Cam;
 
@@ -82,7 +86,7 @@ public class Player : MonoBehaviour
         Vector3 Movement = Cam.transform.right * Horizontal + Cam.transform.forward * Vertical;
         Movement.y = 0f;
 
-        Controller.AddForce(Movement * currentSpeed);
+        Controller.AddForce(Movement.normalized * currentSpeed);
 
         Vector3 currentVelocity = Controller.velocity;
 
@@ -92,13 +96,13 @@ public class Player : MonoBehaviour
             if (angle <= 30f)
             {
                 // Accelerate, clamped to maximum
-                currentSpeed = Mathf.Min(currentSpeed + (acceleration * Time.deltaTime), MaxSpeed);
+                currentSpeed = Mathf.Min(currentSpeed + (acceleration * Time.fixedDeltaTime), MaxSpeed);
             }
             else
             {
                 // Decelerate, clamped to start speed.
                 // NOTE: We can add a separate "deceleration" value here.
-                currentSpeed = Mathf.Max(currentSpeed - (acceleration * Time.deltaTime), StartSpeed);
+                currentSpeed = Mathf.Max(currentSpeed - (acceleration * Time.fixedDeltaTime), StartSpeed);
             }
         }
         else
@@ -125,7 +129,29 @@ public class Player : MonoBehaviour
 
         // }
 
-        Debug.Log("Current Speed - " + currentVelocity);
+        Vector3 velocity = Controller.velocity;
+
+        float speed = velocity.magnitude;
+
+        Debug.Log("Speed - " + speed);
+
+        if (speed >= collapseThreshHold)
+        {
+            collapseTimer += Time.fixedDeltaTime;
+            Debug.Log(collapseTimer);
+            if (collapseTimer >= timerMax)
+            {
+                ResetModel();
+                Debug.Log("RIP BOZO");
+            }
+
+        }
+        else if (collapseTimer > 0)
+        {
+            collapseTimer -= Time.fixedDeltaTime;
+
+        }
+
 
 
 
@@ -158,11 +184,7 @@ public class Player : MonoBehaviour
     void SwitchModel()
     {
         ratModels[currentModelIndex].SetActive(false);
-        if (currentModelIndex < 10)
-        {
-            currentModelIndex++;
-        }
-        else;
+        currentModelIndex++;
         ratModels[currentModelIndex].SetActive(true);
     }
     void ResetModel()
