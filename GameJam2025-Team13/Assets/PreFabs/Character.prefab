@@ -80,7 +80,9 @@ MonoBehaviour:
   StartSpeed: 40
   MaxSpeed: 70
   acceleration: 30
-  collapseSpeed: 12
+  collapseThreshHold: 10
+  collapseTimer: 0
+  timerMax: 3
   Cam: {fileID: 0}
   currentModelIndex: 0
   CanvasUI: {fileID: 0}
@@ -433,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1220684205264780123, guid: ce811d02818b1444281e7a3774594b9e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7256231599359803904, guid: ce811d02818b1444281e7a3774594b9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -504,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1220684205264780123, guid: 4b1adbae973f2d543b142e857dda8c94, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3627074160776918322, guid: 4b1adbae973f2d543b142e857dda8c94, type: 3}
       propertyPath: m_ConnectedAnchor.y
