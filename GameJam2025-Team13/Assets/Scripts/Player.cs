@@ -227,7 +227,7 @@ public class Player : MonoBehaviour
         ratModels[currentModelIndex].SetActive(false);
         currentModelIndex = 0;
         ratModels[currentModelIndex].SetActive(true);
-        CamHeight.position = new Vector3(0, 2, 0);
+        CamHeight.localPosition = new Vector3(0, 2, 0);
     }
     void ExpelModel()
     {
