@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     public float timerMax = 3;
 
     public Transform Cam;
+    public Transform CamHeight;
+
+    Vector3 CamHeightTarget = new Vector3(0,2,0);
 
     private Vector3 lastVelocity = Vector3.zero;
     private float currentSpeed = 0f; // The current maximum speed of the character, changed by acceleration.
@@ -198,26 +201,33 @@ public class Player : MonoBehaviour
             SpawnAroundPlayer(arrayCount);
 
         }
-        else if (collision.CompareTag("WinCondition"))
-        {
-            Debug.Log("Player has Won!");
-            WinGame();
+        // else if (collision.CompareTag("WinCondition"))
+        // {
+        //     Debug.Log("Player has Won!");
+        //     WinGame();
 
-        }
+        // }
 
 
     }
     void SwitchModel()
     {
-        ratModels[currentModelIndex].SetActive(false);
-        currentModelIndex++;
-        ratModels[currentModelIndex].SetActive(true);
+        if (currentModelIndex <= 9)
+        {
+            ratModels[currentModelIndex].SetActive(false);
+            currentModelIndex++;
+            ratModels[currentModelIndex].SetActive(true);
+            CamHeight.Translate(Vector3.up * 2);
+        }
+        else;
+        
     }
     void ResetModel()
     {
         ratModels[currentModelIndex].SetActive(false);
         currentModelIndex = 0;
         ratModels[currentModelIndex].SetActive(true);
+        CamHeight.position = new Vector3(0, 2, 0);
     }
     void ExpelModel()
     {
