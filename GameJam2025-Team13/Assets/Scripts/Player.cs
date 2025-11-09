@@ -5,6 +5,7 @@ using TMPro;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -42,11 +43,14 @@ public class Player : MonoBehaviour
     private float currentSpeed = 0f; // The current maximum speed of the character, changed by acceleration.
 
     [SerializeField] int currentModelIndex = 0;
+    [SerializeField] int currentUIIndex = 0;
 
     public GameObject CanvasUI;
     [SerializeField] TMP_Text UIText;
 
     int arrayCount;
+
+    public StabilityBarScript stabilityBar;
 
     // Start is called before the first frame update
     void Start()
@@ -161,6 +165,7 @@ public class Player : MonoBehaviour
                 ResetModel();
                 Debug.Log("RIP BOZO");
             }
+            
 
         }
         else if (collapseTimer > 0)
@@ -168,7 +173,7 @@ public class Player : MonoBehaviour
             collapseTimer -= Time.fixedDeltaTime;
 
         }
-
+        stabilityBar.SetSlider(collapseTimer);
 
 
 
@@ -212,12 +217,16 @@ public class Player : MonoBehaviour
     }
     void SwitchModel()
     {
-        if (currentModelIndex <= 9)
+        if (currentModelIndex < 9)
         {
             ratModels[currentModelIndex].SetActive(false);
             currentModelIndex++;
             ratModels[currentModelIndex].SetActive(true);
             CamHeight.Translate(Vector3.up * 2);
+            ratUI[currentUIIndex].SetActive(false);
+            currentUIIndex++;
+            ratUI[currentUIIndex].SetActive(true);
+
         }
         else;
         
@@ -228,6 +237,10 @@ public class Player : MonoBehaviour
         currentModelIndex = 0;
         ratModels[currentModelIndex].SetActive(true);
         CamHeight.localPosition = new Vector3(0, 2, 0);
+
+        ratUI[currentUIIndex].SetActive(false);
+        currentUIIndex = 0;
+        ratUI[currentUIIndex].SetActive(true);
     }
     void ExpelModel()
     {
