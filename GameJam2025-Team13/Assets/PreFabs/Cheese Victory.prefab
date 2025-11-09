@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6597413661521694174}
   - component: {fileID: 1893681994688336520}
+  - component: {fileID: 2312448602133380577}
   m_Layer: 0
   m_Name: Cheese Victory
   m_TagString: WinCondition
@@ -55,6 +56,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.134978, y: 2.345304, z: 5.6655097}
   m_Center: {x: -0.51068187, y: 0.672652, z: 0}
+--- !u!114 &2312448602133380577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732808200567779842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0be59e5be78ba649891cff11ea97673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8919651440963427450
 GameObject:
   m_ObjectHideFlags: 0
