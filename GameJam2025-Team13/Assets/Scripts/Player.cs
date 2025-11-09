@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public float StartSpeed;
     public float MaxSpeed;
     public float acceleration = 1f;
+    public float fallSpeed = 10f;
     public float collapseThreshHold = 10;
 
     public float collapseTimer;
@@ -96,6 +97,8 @@ public class Player : MonoBehaviour
         Movement.y = 0f;
 
         Controller.AddForce(Movement.normalized * currentSpeed);
+        Controller.AddForce(transform.up * fallSpeed);
+        
 
         Vector3 currentVelocity = Controller.velocity;
 
@@ -122,6 +125,7 @@ public class Player : MonoBehaviour
 
         lastVelocity = currentVelocity;
 
+
         if (Movement.magnitude != 0f)
         {
             transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Cam.GetComponent<CameraMove>().sensitivity * Time.deltaTime);
@@ -133,7 +137,8 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, CamRotation, 0.1f);
         }
 
-
+        
+        
         Vector3 velocity = Controller.velocity;
 
         float speed = velocity.magnitude;
