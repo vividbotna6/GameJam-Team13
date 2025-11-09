@@ -69,7 +69,17 @@ MonoBehaviour:
   - {fileID: 8629502139820522809}
   - {fileID: 7986645939431510412}
   - {fileID: 6974869253040666513}
-  ratUI: []
+  ratUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   testModelSwitch: 0
   testResetSwitch: 0
   testExpelSwitch: 0
@@ -89,8 +99,10 @@ MonoBehaviour:
   Cam: {fileID: 0}
   CamHeight: {fileID: 7647342781262406303}
   currentModelIndex: 0
+  currentUIIndex: 0
   CanvasUI: {fileID: 0}
   UIText: {fileID: 0}
+  stabilityBar: {fileID: 0}
 --- !u!136 &1207743581636328794
 CapsuleCollider:
   m_ObjectHideFlags: 0
